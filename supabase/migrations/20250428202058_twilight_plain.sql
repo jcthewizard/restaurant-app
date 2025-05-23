@@ -21,8 +21,8 @@ CREATE POLICY "Lobby members can read other members"
   USING (
     -- The user is a member of the same lobby
     lobby_id IN (
-      SELECT lm.lobby_id 
-      FROM lobby_members lm 
+      SELECT lm.lobby_id
+      FROM lobby_members lm
       WHERE lm.user_id = auth.uid()
     )
     OR
